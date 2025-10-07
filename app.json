@@ -1,0 +1,32 @@
+{
+  "id": "fe126444-bd56-494b-8ff4-a7c85a648a20",
+  "name": "Absence Registration",
+  "publisher": "Bech-Andersen Consult ApS",
+  "version": "26.0.0.1",
+  "brief": "Absence Registration",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "./Images/Logo.png",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "26.0.0.0",
+  "idRanges": [
+    {
+      "from": 85000,
+      "to": 85009
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "15.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
