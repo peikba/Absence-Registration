@@ -17,11 +17,23 @@ page 85000 "BAC Absence Overview"
                 field(FromDate; FromDate)
                 {
                     Caption = 'From Date';
+                    ToolTip='Calculate the absences from this date - can also be in the past';
 
                     trigger OnValidate()
                     begin
                         Initialize();
                         CurrPage.Update();
+                    end;
+                }
+                field(ShowFutureAbsence; ShowFutureAbsence)
+                {
+                    Caption = 'Show Future Absences';
+                    ToolTip='Enable calculation of absences that start after the from date';
+
+                    trigger OnValidate()
+                    begin
+                        Initialize();
+                        CurrPage.Update(false);
                     end;
                 }
             }
@@ -111,6 +123,7 @@ page 85000 "BAC Absence Overview"
     var
         FromDate: Date;
         EmployeeName: Text[100];
+        ShowFutureAbsence: Boolean;
 
     trigger OnAfterGetRecord()
     var
@@ -146,8 +159,10 @@ page 85000 "BAC Absence Overview"
         TempEmployeeAbsence.SetFilter("To Date", '>=%1', FromDate);
         if TempEmployeeAbsence.FindSet() then begin
             repeat
-                Rec := TempEmployeeAbsence;
-                Rec.insert();
+                if ShowFutureAbsence or (not ShowFutureAbsence and (TempEmployeeAbsence."From Date" <= FromDate)) then begin
+                    Rec := TempEmployeeAbsence;
+                    Rec.insert();
+                end;
             until TempEmployeeAbsence.Next() = 0;
         end;
     end;
