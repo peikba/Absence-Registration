@@ -1,11 +1,12 @@
-pageextension 85000 "Sales Order Processor RC" extends "Order Processor Role Center"
+pageextension 85001 "BAC Finance Manager RC" extends "Finance Manager Role Center"
 {
     layout
     {
-        addafter(Control1901851508)
+        addfirst(RoleCenter)
         {
             part(AbsenceOverview; "BAC Absence Overview")
             {
+                Visible=false;
                 ApplicationArea = ALL;
             }
         }

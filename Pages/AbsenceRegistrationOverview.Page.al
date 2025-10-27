@@ -1,4 +1,4 @@
-page 85000 "BAC Absence Overview"
+page 85003 "BAC Absence Overview"
 {
     Caption = 'Absence Overview';
     PageType = ListPart;
@@ -17,7 +17,7 @@ page 85000 "BAC Absence Overview"
                 field(FromDate; FromDate)
                 {
                     Caption = 'From Date';
-                    ToolTip='Calculate the absences from this date - can also be in the past';
+                    ToolTip = 'Calculate the absences from this date - can also be in the past';
 
                     trigger OnValidate()
                     begin
@@ -28,7 +28,7 @@ page 85000 "BAC Absence Overview"
                 field(ShowFutureAbsence; ShowFutureAbsence)
                 {
                     Caption = 'Show Future Absences';
-                    ToolTip='Enable calculation of absences that start after the from date';
+                    ToolTip = 'Enable calculation of absences that start after the from date';
 
                     trigger OnValidate()
                     begin
@@ -135,13 +135,15 @@ page 85000 "BAC Absence Overview"
             EmployeeName := '';
     end;
 
+
     trigger OnOpenPage()
     begin
+        ClosePageIfNotSelected();
         FromDate := WorkDate();
         Initialize();
     end;
 
-    local procedure Initialize()
+    local procedure Initialize();
     var
         TempEmployeeAbsence: Record "Employee Absence" temporary;
         EmployeeAbsence: Record "Employee Absence";
@@ -167,4 +169,28 @@ page 85000 "BAC Absence Overview"
         end;
     end;
 
+    local procedure GetRoleCenterID(inProfile: Code[20]): Integer
+    var
+        Profile: Record "All Profile";
+    begin
+        Profile.SetRange("Profile ID", inProfile);
+        if Profile.FindFirst() then
+            exit(Profile."Role Center ID");
+    end;
+
+    local procedure ClosePageIfNotSelected()
+    var
+        UserPersonalization: Record "User Personalization";
+        RCSelection: Record "BAC Role Center Selection";
+    begin
+        UserPersonalization.SetRange("User ID", UserId());
+        if not UserPersonalization.FindFirst() then
+            CurrPage.Close()
+        else begin
+            if not RCSelection.Get(GetRoleCenterID(UserPersonalization."Profile ID")) then
+                CurrPage.Close();
+            if not RCSelection.Selected then
+                CurrPage.Close();
+        end;
+    end;
 }
