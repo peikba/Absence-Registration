@@ -10,14 +10,10 @@ table 85000 "BAC Absence Registration Setup"
             Caption = 'Primary Key';
             DataClassification = SystemMetadata;
         }
-        field(2; "Default Message Text"; Text[250])
+        field(2; "Earliest Future Absence Reg."; DateFormula)
         {
-            Caption = 'Default Message Text';
-            DataClassification = SystemMetadata;
-        }
-        field(3; "Default Message URL"; Text[250])
-        {
-            Caption = 'Default Message URL';
+            Caption = 'Earliest Future Absence Registration';
+            ToolTip = 'How far into the future should absence registration start be included';
             DataClassification = SystemMetadata;
         }
     }

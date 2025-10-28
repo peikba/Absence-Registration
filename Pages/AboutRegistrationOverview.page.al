@@ -12,7 +12,7 @@ page 85002 "BAC About Absence Registration"
             {
 
                 Caption = 'About Absence Registration';
-                InstructionalText = 'Open-Source About Absence Registration app. Source code can be located at https://github.com/peikba/AbsenceRegistrationOverview.';
+                InstructionalText = 'Open-Source About Absence Registration app. Source code can be located at https://github.com/peikba/Absence-Registration.';
                 ShowCaption = false;
             }
             grid("App")

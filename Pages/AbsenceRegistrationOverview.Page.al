@@ -28,7 +28,8 @@ page 85003 "BAC Absence Overview"
                 field(ShowFutureAbsence; ShowFutureAbsence)
                 {
                     Caption = 'Show Future Absences';
-                    ToolTip = 'Enable calculation of absences that start after the from date';
+                    OptionCaption = 'None,Limited,All';
+                    ToolTip = 'Enable calculation of absences that start after the from date - None = No future absence registrations - Limited =  withing the the "Earliest Future Absence Registration - All = All future Absence Registrations';
 
                     trigger OnValidate()
                     begin
@@ -123,7 +124,7 @@ page 85003 "BAC Absence Overview"
     var
         FromDate: Date;
         EmployeeName: Text[100];
-        ShowFutureAbsence: Boolean;
+        ShowFutureAbsence: Option None,Limited,All;
 
     trigger OnAfterGetRecord()
     var
@@ -147,7 +148,14 @@ page 85003 "BAC Absence Overview"
     var
         TempEmployeeAbsence: Record "Employee Absence" temporary;
         EmployeeAbsence: Record "Employee Absence";
+        AbsRegSetup: Record "BAC Absence Registration Setup";
+        EarliestFutureAbsReg: Date;
     begin
+        AbsRegSetup.Get();
+        if format(AbsRegSetup."Earliest Future Absence Reg.") <> '' then
+            EarliestFutureAbsReg := CalcDate(AbsRegSetup."Earliest Future Absence Reg.", WorkDate())
+        else
+            EarliestFutureAbsReg := DMY2Date(31, 12, 9999);
         Rec.DeleteAll();
         if EmployeeAbsence.FindSet() then begin
             repeat
@@ -161,7 +169,9 @@ page 85003 "BAC Absence Overview"
         TempEmployeeAbsence.SetFilter("To Date", '>=%1', FromDate);
         if TempEmployeeAbsence.FindSet() then begin
             repeat
-                if ShowFutureAbsence or (not ShowFutureAbsence and (TempEmployeeAbsence."From Date" <= FromDate)) then begin
+                if (ShowFutureAbsence = ShowFutureAbsence::All) or
+                   ((ShowFutureAbsence = ShowFutureAbsence::Limited) and (TempEmployeeAbsence."From Date" <= EarliestFutureAbsReg)) or
+                   ((ShowFutureAbsence = ShowFutureAbsence::None) and (TempEmployeeAbsence."From Date" <= FromDate)) then begin
                     Rec := TempEmployeeAbsence;
                     Rec.insert();
                 end;

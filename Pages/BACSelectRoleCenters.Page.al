@@ -23,6 +23,7 @@ page 85001 "BAC Select RoleCenters"
                 }
                 field(RoleCenterSelected; RoleCenterSelected)
                 {
+                    Visible = false;
                     trigger OnValidate()
                     var
                         RCSelection: Record "BAC Role Center Selection";

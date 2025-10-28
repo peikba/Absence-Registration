@@ -15,19 +15,11 @@ page 85000 "BAC Absence Registration Setup"
             group(General)
             {
                 Caption = 'General';
-                field("Default Message Text"; Rec."Default Message Text")
+                field("Earliest Future Absence Reg."; Rec."Earliest Future Absence Reg.")
                 {
-                    Caption = 'Default Message Text';
+                    Caption = 'Earliest Future Absence Registration';
                     ApplicationArea = All;
                     MultiLine = true;
-                    ToolTip = 'Enter the Default Document Text to be shown on the Role Center - %1 in the text will insert the company name';
-                }
-                field("Default Message URL"; Rec."Default Message URL")
-                {
-                    Caption = 'Default Message URL';
-                    ApplicationArea = All;
-                    MultiLine = true;
-                    ToolTip = 'Enter the URL to be used on the Role Center when clicking on the headline';
                 }
             }
         }
@@ -66,5 +58,13 @@ page 85000 "BAC Absence Registration Setup"
             }
         }
     }
+    trigger OnOpenPage()
+    begin
+        if not Rec.Get() then begin
+            Rec.Init();
+            REc.Insert();
+        end;
+
+    end;
 
 }
