@@ -6,6 +6,8 @@ page 85003 "BAC Absence Overview"
     UsageCategory = Lists;
     SourceTable = "Employee Absence";
     SourceTableTemporary = true;
+    InsertAllowed = false;
+    DeleteAllowed = false;
 
     layout
     {
@@ -36,6 +38,10 @@ page 85003 "BAC Absence Overview"
                         Initialize();
                         CurrPage.Update(false);
                     end;
+                }
+                field(DepartmentFilter; DepartmentFilter)
+                {
+                    TableRelation = Dimension;
                 }
             }
             repeater(GroupName)
@@ -125,6 +131,7 @@ page 85003 "BAC Absence Overview"
         FromDate: Date;
         EmployeeName: Text[100];
         ShowFutureAbsence: Option None,Limited,All;
+        DepartmentFilter: Text;
 
     trigger OnAfterGetRecord()
     var
@@ -139,7 +146,7 @@ page 85003 "BAC Absence Overview"
 
     trigger OnOpenPage()
     begin
-        ClosePageIfNotSelected();
+        //ClosePageIfNotSelected();
         FromDate := WorkDate();
         Initialize();
     end;

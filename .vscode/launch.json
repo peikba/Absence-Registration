@@ -7,7 +7,7 @@
             "type": "al",
             "environmentType": "OnPrem",
             "server": "http://localhost",
-            "serverInstance": "BC260",
+            "serverInstance": "BC270",
             "authentication": "Windows",
             "breakOnError": "All",
             "launchBrowser": true,

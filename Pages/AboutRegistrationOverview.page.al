@@ -1,7 +1,7 @@
 page 85002 "BAC About Absence Registration"
 {
     Caption = 'About Absence Registration';
-    PageType = Card;
+    PageType = CardPart;
     ShowFilter = false;
 
     layout
