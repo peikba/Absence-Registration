@@ -8,6 +8,7 @@ page 85003 "BAC Absence Overview"
     SourceTableTemporary = true;
     InsertAllowed = false;
     DeleteAllowed = false;
+    SaveValues = true;
 
     layout
     {
@@ -39,9 +40,40 @@ page 85003 "BAC Absence Overview"
                         CurrPage.Update(false);
                     end;
                 }
-                field(DepartmentFilter; DepartmentFilter)
+                field(EmployeeGroupFilter; EmployeeGroupFilter)
                 {
-                    TableRelation = Dimension;
+                    ShowCaption = true;
+                    CaptionClass = AbsRegSetup."Employee Group Name";
+
+                    trigger OnLookup(var Text: Text): Boolean
+                    var
+                        AbsenceSetup: Record "BAC Absence Registration Setup";
+                        DimensionValue: Record "Dimension Value";
+                        DimensionValues: Page "Dimension Value List";
+                    begin
+                        AbsenceSetup.Get();
+                        DimensionValue.SetRange("Dimension Code", AbsenceSetup."Employee Group Dimension");
+                        DimensionValues.SetTableView(DimensionValue);
+                        DimensionValues.LookupMode(true);
+                        if DimensionValues.RunModal() = Action::OK then begin
+                            DimensionValues.GetRecord(DimensionValue);
+                            "EmployeeGroupFilter" := DimensionValue.Code;
+                            Initialize();
+                            CurrPage.Update(false);
+                        end;
+                    end;
+
+                    trigger OnValidate()
+                    var
+                        AbsenceSetup: Record "BAC Absence Registration Setup";
+                        DimensionValue: Record "Dimension Value";
+                    begin
+                        AbsenceSetup.Get();
+                        if EmployeeGroupFilter <> '' then
+                            DimensionValue.Get(AbsenceSetup."Employee Group Dimension", "EmployeeGroupFilter");
+                        Initialize();
+                    end;
+
                 }
             }
             repeater(GroupName)
@@ -131,7 +163,7 @@ page 85003 "BAC Absence Overview"
         FromDate: Date;
         EmployeeName: Text[100];
         ShowFutureAbsence: Option None,Limited,All;
-        DepartmentFilter: Text;
+        EmployeeGroupFilter: Text;
 
     trigger OnAfterGetRecord()
     var
@@ -145,20 +177,36 @@ page 85003 "BAC Absence Overview"
 
 
     trigger OnOpenPage()
+    var
+        RespCenter: Record "Responsibility Center";
+        RespCenterCode: Code[10];
+        UserSetup: Record "User Setup";
     begin
-        //ClosePageIfNotSelected();
+        UserSetup.Get(UserId);
+        case true of
+            (UserSetup."Sales Resp. Ctr. Filter" <> ''):
+                RespCenterCode := UserSetup."Sales Resp. Ctr. Filter";
+            (UserSetup."Purchase Resp. Ctr. Filter" <> ''):
+                RespCenterCode := UserSetup."Purchase Resp. Ctr. Filter";
+            (UserSetup."Service Resp. Ctr. Filter" <> ''):
+                RespCenterCode := UserSetup."Service Resp. Ctr. Filter";
+        end;
+        AbsRegSetup.Get();
+        EmployeeGroupFilter := GetEmployeeGroupFilterFromRespCenter(RespCenterCode, AbsRegSetup."Employee Group Dimension");
+        AbsRegSetup.CalcFields("Employee Group Name");
         FromDate := WorkDate();
         Initialize();
     end;
+
+    var
+        AbsRegSetup: Record "BAC Absence Registration Setup";
 
     local procedure Initialize();
     var
         TempEmployeeAbsence: Record "Employee Absence" temporary;
         EmployeeAbsence: Record "Employee Absence";
-        AbsRegSetup: Record "BAC Absence Registration Setup";
         EarliestFutureAbsReg: Date;
     begin
-        AbsRegSetup.Get();
         if format(AbsRegSetup."Earliest Future Absence Reg.") <> '' then
             EarliestFutureAbsReg := CalcDate(AbsRegSetup."Earliest Future Absence Reg.", WorkDate())
         else
@@ -179,35 +227,35 @@ page 85003 "BAC Absence Overview"
                 if (ShowFutureAbsence = ShowFutureAbsence::All) or
                    ((ShowFutureAbsence = ShowFutureAbsence::Limited) and (TempEmployeeAbsence."From Date" <= EarliestFutureAbsReg)) or
                    ((ShowFutureAbsence = ShowFutureAbsence::None) and (TempEmployeeAbsence."From Date" <= FromDate)) then begin
-                    Rec := TempEmployeeAbsence;
-                    Rec.insert();
+                    if (EmployeeGroupFilter = '') or ((EmployeeGroupFilter <> '') and EmployeeIsMemberOfDimension(TempEmployeeAbsence."Employee No.", EmployeeGroupFilter)) then begin
+                        Rec := TempEmployeeAbsence;
+                        Rec.insert();
+                    end;
                 end;
             until TempEmployeeAbsence.Next() = 0;
         end;
     end;
 
-    local procedure GetRoleCenterID(inProfile: Code[20]): Integer
+    local procedure EmployeeIsMemberOfDimension(inEmployeeCode: Code[20]; inEmployeeGroupDimensionCode: code[10]): Boolean
     var
-        Profile: Record "All Profile";
+        DefaultDim: Record "Default Dimension";
     begin
-        Profile.SetRange("Profile ID", inProfile);
-        if Profile.FindFirst() then
-            exit(Profile."Role Center ID");
+        DefaultDim.SetRange("Table ID", Database::Employee);
+        DefaultDim.SetRange("No.", inEmployeeCode);
+        DefaultDim.SetRange("Dimension Code", AbsRegSetup."Employee Group Dimension");
+        DefaultDim.SetRange("Dimension Value Code", inEmployeeGroupDimensionCode);
+        exit(not DefaultDim.IsEmpty());
     end;
 
-    local procedure ClosePageIfNotSelected()
+    local procedure GetEmployeeGroupFilterFromRespCenter(inRespCenterCode: Code[10]; inEmployeeGroupDimension: Code[10]) ReturnCode: Code[10];
     var
-        UserPersonalization: Record "User Personalization";
-        RCSelection: Record "BAC Role Center Selection";
+        DefaultDim: Record "Default Dimension";
     begin
-        UserPersonalization.SetRange("User ID", UserId());
-        if not UserPersonalization.FindFirst() then
-            CurrPage.Close()
-        else begin
-            if not RCSelection.Get(GetRoleCenterID(UserPersonalization."Profile ID")) then
-                CurrPage.Close();
-            if not RCSelection.Selected then
-                CurrPage.Close();
-        end;
+        DefaultDim.SetRange("Table ID", Database::"Responsibility Center");
+        DefaultDim.SetRange("Dimension Code", inEmployeeGroupDimension);
+        DefaultDim.SetRange("No.", inRespCenterCode);
+        if DefaultDim.FindFirst() then
+            ReturnCode := DefaultDim."Dimension Value Code";
     end;
+
 }

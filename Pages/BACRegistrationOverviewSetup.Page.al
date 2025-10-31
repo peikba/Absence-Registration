@@ -18,7 +18,7 @@ page 85000 "BAC Absence Registration Setup"
                 field("Earliest Future Absence Reg."; Rec."Earliest Future Absence Reg.")
                 {
                 }
-                field("Department Dimension"; Rec."Department Dimension")
+                field("Department Dimension"; Rec."Employee Group Dimension")
                 {
                 }
             }
