@@ -52,8 +52,6 @@ page 85002 "BAC About Absence Registration"
             {
                 Caption = 'Disclaimer';
                 image = Warning;
-                Promoted = true;
-                PromotedCategory = Process;
                 ApplicationArea = all;
                 trigger OnAction()
                 begin

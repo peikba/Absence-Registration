@@ -1,6 +1,6 @@
 page 85001 "BAC Select RoleCenters"
 {
-    Caption = 'Select RoleCenters';
+    Caption = 'Included RoleCenters';
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
