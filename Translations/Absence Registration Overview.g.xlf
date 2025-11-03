@@ -164,7 +164,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page BAC AL Logo FactBox - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 699988736 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Select RoleCenters</source>
+          <source>Included RoleCenters</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BAC Select RoleCenters - Property Caption</note>
         </trans-unit>
