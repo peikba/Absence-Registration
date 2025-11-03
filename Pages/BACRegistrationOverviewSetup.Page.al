@@ -21,6 +21,9 @@ page 85000 "BAC Absence Registration Setup"
                 field("Department Dimension"; Rec."Employee Group Dimension")
                 {
                 }
+                field("Employee Group Name"; Rec."Employee Group Name")
+                {
+                }
             }
         }
         area(FactBoxes)
@@ -53,9 +56,8 @@ page 85000 "BAC Absence Registration Setup"
     begin
         if not Rec.Get() then begin
             Rec.Init();
-            REc.Insert();
+            Rec.Insert();
         end;
-
     end;
 
 }

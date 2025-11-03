@@ -2,12 +2,27 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Publish: Microsoft cloud sandbox",
+            "type": "al",
+            "request": "launch",
+            "environmentType": "Sandbox",
+            "environmentName": "sandbox",
+            "startupObjectId": 22,
+            "breakOnError": "All",
+            "breakOnRecordWrite": "None",
+            "launchBrowser": true,
+            "enableSqlInformationDebugger": true,
+            "enableLongRunningSqlStatements": true,
+            "longRunningSqlStatementsThreshold": 500,
+            "numberOfSqlStatements": 10
+        },
+        {
             "name": "Your own server",
             "request": "launch",
             "type": "al",
             "environmentType": "OnPrem",
             "server": "http://localhost",
-            "serverInstance": "BC270",
+            "serverInstance": "BC260",
             "authentication": "Windows",
             "breakOnError": "All",
             "launchBrowser": true,

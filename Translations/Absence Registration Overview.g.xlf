@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="en-US" original="Absence Registration Overview">
+    <body>
+      <group id="body">
+        <trans-unit id="Table 1000793565 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Absence Registration Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAC Absence Registration Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1000793565 - Field 3377212553 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>How far into the future should absence registration start be included using the 'Limited' option</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAC Absence Registration Setup - Field Earliest Future Absence Reg. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1000793565 - Field 3377212553 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Earliest Future Absence Registration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAC Absence Registration Setup - Field Earliest Future Absence Reg. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1000793565 - Field 404233855 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Dimension functioning as a Employee Group selector for the overview</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAC Absence Registration Setup - Field Employee Group Dimension - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1000793565 - Field 404233855 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee Group Dimension</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAC Absence Registration Setup - Field Employee Group Dimension - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1000793565 - Field 1162394390 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Employee Group name for the overview</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAC Absence Registration Setup - Field Employee Group Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1000793565 - Field 1162394390 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee Group Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAC Absence Registration Setup - Field Employee Group Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1000793565 - Field 1663593181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Primary Key</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAC Absence Registration Setup - Field Primary Key - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3695633033 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Role Center Selection</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAC Role Center Selection - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3695633033 - Field 3711240756 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Object ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAC Role Center Selection - Field Object ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3695633033 - Field 90423963 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Selected</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table BAC Role Center Selection - Field Selected - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2835599091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>About Absence Registration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC About Absence Registration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2835599091 - Control 1262653531 - Property 1968111052" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open-Source About Absence Registration app. Source code can be located at https://github.com/peikba/Absence-Registration.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC About Absence Registration - Control About Absence Registration - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 2835599091 - Control 1262653531 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>About Absence Registration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC About Absence Registration - Control About Absence Registration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2835599091 - Control 1683930818 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>App Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC About Absence Registration - Control AppName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2835599091 - Control 4056116129 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>App Publisher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC About Absence Registration - Control AppPublisher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2835599091 - Control 237762718 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Version</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC About Absence Registration - Control Version - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2835599091 - Action 1694176181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Disclaimer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC About Absence Registration - Action Disclaimer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2135244722 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Absence Overview</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC Absence Overview - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2135244722 - Control 284195533 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Filters</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC Absence Overview - Control Filters - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2135244722 - Control 837247550 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calculate the absences from this date - can also be in the past</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC Absence Overview - Control FromDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2135244722 - Control 837247550 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>From Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC Absence Overview - Control FromDate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2135244722 - Control 1022787581 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enable calculation of absences that start after the from date - None = No future absence registrations - Limited =  withing the the "Earliest Future Absence Registration - All = All future Absence Registrations</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC Absence Overview - Control ShowFutureAbsence - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2135244722 - Control 1022787581 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Future Absences</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC Absence Overview - Control ShowFutureAbsence - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2135244722 - Control 1022787581 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>None,Limited,All</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC Absence Overview - Control ShowFutureAbsence - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Page 2135244722 - Action 2474716585 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Absence Registrations</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC Absence Overview - Action Absence Registrations - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2135244722 - Action 667381092 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create New</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC Absence Overview - Action Create New - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1000793565 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Absence Registration Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC Absence Registration Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1000793565 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC Absence Registration Setup - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1000793565 - Action 1736535209 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>See which RoleCenters pages are included</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC Absence Registration Setup - Action RoleCentersSelections - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1000793565 - Action 1736535209 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>RoleCenters Page Overview</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC Absence Registration Setup - Action RoleCentersSelections - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 355888149 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source> </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC AL Logo FactBox - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 699988736 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select RoleCenters</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BAC Select RoleCenters - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

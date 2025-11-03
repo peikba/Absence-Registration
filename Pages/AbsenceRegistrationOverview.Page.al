@@ -182,15 +182,15 @@ page 85003 "BAC Absence Overview"
         RespCenterCode: Code[10];
         UserSetup: Record "User Setup";
     begin
-        UserSetup.Get(UserId);
-        case true of
-            (UserSetup."Sales Resp. Ctr. Filter" <> ''):
-                RespCenterCode := UserSetup."Sales Resp. Ctr. Filter";
-            (UserSetup."Purchase Resp. Ctr. Filter" <> ''):
-                RespCenterCode := UserSetup."Purchase Resp. Ctr. Filter";
-            (UserSetup."Service Resp. Ctr. Filter" <> ''):
-                RespCenterCode := UserSetup."Service Resp. Ctr. Filter";
-        end;
+        if UserSetup.Get(UserId) then
+            case true of
+                (UserSetup."Sales Resp. Ctr. Filter" <> ''):
+                    RespCenterCode := UserSetup."Sales Resp. Ctr. Filter";
+                (UserSetup."Purchase Resp. Ctr. Filter" <> ''):
+                    RespCenterCode := UserSetup."Purchase Resp. Ctr. Filter";
+                (UserSetup."Service Resp. Ctr. Filter" <> ''):
+                    RespCenterCode := UserSetup."Service Resp. Ctr. Filter";
+            end;
         AbsRegSetup.Get();
         EmployeeGroupFilter := GetEmployeeGroupFilterFromRespCenter(RespCenterCode, AbsRegSetup."Employee Group Dimension");
         AbsRegSetup.CalcFields("Employee Group Name");
